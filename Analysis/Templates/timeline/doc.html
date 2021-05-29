@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% block title %} Insights docs {% endblock %}
+<section class="doc sections lead">
+    <div class="head">
+        <p>'INSIGHTS' helps you to see your ugly data.</p>
+    </div>
+    <div class="get-start">
+        <p>To visualize your data:</p>
+        <ul>
+            <li>
+                At fisrt you need to upload a csv file (we are taking only csv file for now)
+            </li>
+            <li>
+                You can customize the file length (number of row)
+            </li>
+            <li>
+                Have a look at the DataFrame.
+            </li>
+            <li>
+                Click `Get Charts` to go to the charts page
+            </li>
+            <li>
+                Select the columns you want to visualize.You can select multiple columns and compare them together.
+            </li>
+            <li>We just bring the numeric columns which could be visualized</li>
+            <li>We don't save your data</li>
+        </ul>
+    </div>
+
+    <div class="upload-file">
+        <div>
+            <ol class="upload-title">UPLOAD A CSV FILE</ol>
+        </div>
+        <div>
+            <img src="{% static "img/upload-file.PNG" %}" alt="">
+        </div>
+        <div>
+            <p>You can customize the row of your data (red block) . Then click `choose file` to select a csv file
+                from your device.Then click `submit` (yellow block). Now you can see a DataFrame created
+                based on your csv file.
+            </p>
+        </div>
+    </div>
+
+    <div class="get-charts">
+        <div>
+            <ol class="charts-title">GET CHARTS</ol>
+        </div>
+        <div>
+            <img src="{% static "img/get-chart.PNG" %}" alt="">
+        </div>
+        <div>
+            <p>After exploring the DataFrame.Click `Get Charts` to go to the Charts page</p>
+        </div>
+    </div>
+
+    <div class="select-col">
+        <div>
+            <ol class="col-title">SELECT COLUMNS</ol>
+        </div>
+        <div>
+            <img src="{% static "img/get-cols.PNG" %}" alt="">
+        </div>
+        <div>
+            <p>If you notice there are missing some of the columns.That only because of that are not 
+                numeric data.Only numeric data can build a chart.</p>
+            <p>
+                Now click on the column buttons . you can select multiple.
+            </p>
+            <p>Here I have selected 'math score and 'reading score' . You can easily delete the
+                columns by just clicking that.Now to see the charts you need have a sleep(cringe).
+                click the `show charts` button to see the beatiful charts. 
+            </p>
+        </div>
+        <div>
+            <img src="{% static "img/show-charts.PNG" %}" alt="">
+        </div>
+        <div>
+            <p>If everything ok.You will see something like below</p>
+            <img src="{% static "img/charts.PNG" %}" alt="">
+        </div>
+    </div>
+    <div style="text-align: center;padding-bottom:20px;">
+        <i>How was that?  ^_^</i>
+    </div>
+</section>
+
+<style scoped>
+    @media screen and (min-width:1024px) {
+      .sections{
+          width: 1024px;
+          margin: auto;
+      }
+    }
+    .select-col .col-title{
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .select-col{
+        margin: 40px 40px;
+    }
+    .get-charts .charts-title{
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .get-charts{
+        margin: 40px 40px;
+    }
+    .upload-file .upload-title{
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .upload-file{
+        margin: 40px 40px;
+    }
+    img{
+        width: 80%;
+        margin: 10px ;
+        border: 1px solid white;
+    }
+    .get-start{
+        padding: 10px;
+    }
+    .head{
+        margin-bottom: 30px;
+    }
+    .head p{
+        font-family:'Courier New', Courier, monospace;
+        font-size: 20px;
+        text-align: center;
+    }
+    .doc{
+        color: white;
+        font-size: 17px;
+    }
+</style>
+
+{% endblock content %}

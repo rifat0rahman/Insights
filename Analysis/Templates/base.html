@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- boostrap css -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+    <section class="sections">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand me-2" href="/">INSIGHTS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item me-3 ms-3">
+                            <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'timeline' %}">Home</a>
+                        </li>
+                        <li class="nav-item {% if request.path == '/documentation' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'doc' %}">Documentation</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav right">
+                        <li class="nav-item">
+                         <a class="nav-link" target="_blank" href="https://github.com/rifat0rahman/Insights"><i class="bi bi-github"></i></a>
+                         </li> 
+                     </ul>
+                </div>
+                
+            </div>
+        </nav>
+
+    </section>
+
+    <section>
+        {% block content %}
+
+        {% endblock content %}
+    </section>
+</body>
+<!-- my files -->
+<script src="{% static 'analysis.js' %}"></script>
+
+</html>
+
+<style scoped>
+    @media screen and (min-width:1024px) {
+      .sections{
+          width: 1024px;
+          margin: auto;
+      }
+    }
+    .navbar-brand{
+        text-decoration: line-through;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 300;
+    }
+    .right{
+        position:absolute;
+        right: 20px;
+        font-size:25px;
+    }
+    .nav-item:hover{
+        border-bottom: 2px solid white;
+        color: white !important;
+    }
+    .navbar{
+        color: white !important;
+        font-size: 18px !important;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .active{
+        border-bottom: 2px solid white;
+        color: white !important;
+    }
+    html,body{
+        height:100%;
+        background-color:#212529;
+    }
+    
+</style>

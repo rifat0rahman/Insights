@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% block title %} See your Insights {% endblock %}
+<section class="sections">
+    <div class="header-text">
+        <p>UPLOAD YOUR CSV FILE</p>
+    </div>
+    <div class="upload">
+        <form action="/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="number" name="rows" value='20' class="rows me-2">
+                <input type="file" name="insights" 
+                class="form-control" id="inputGroupFile04" 
+                aria-describedby="inputGroupFileAddon04" 
+                aria-label="Upload" required>
+                <button class="btn btn-light" type="submit" id="inputGroupFileAddon04">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="data">
+        {% if data %}
+        <div>
+            <div>
+                {{data|safe}}
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-light mt-3" href="{% url 'analysis' name rows %}">Get Charts</a>
+        </div>
+        {% else %}
+        <div class="animation">
+            <img src="{% static "img/animation2.gif" %}" alt="">
+            <p class="creadit">gif from 'analyticsindiamag.com'</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+<script>
+    localStorage.removeItem("cols")
+</script>
+<style scoped>
+    @media screen and (min-width:1024px) {
+      .sections{
+          width: 1024px;
+          margin: auto;
+      }
+    }
+    .creadit{
+        position: absolute;
+        right: 10px;
+        opacity: 0.2;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .animation img{
+        margin-top: 50px;
+        width:100% !important;
+    }
+    .header-text{
+        font-size:22px;
+        font-weight: 600;
+    }
+    .rows:focus{
+        outline: none;
+    }
+    .rows{
+        width: 60px !important;
+        padding: 2px;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius:10px;
+
+    }
+    tbody, td, tfoot, th, thead, tr {
+        border: 1px solid rgb(146, 144, 144);
+        font-family: monospace;
+    }
+    .data{
+        margin-top: 20px;
+        padding:10px;
+        text-align: center;
+        font-size: 14px;
+    }
+    .sections{
+        color: white !important;
+        text-align:center;
+    }
+    .upload{
+        width: 500px;
+        margin: auto;
+        margin-top: 40px;
+    }
+    .btn:focus{
+        outline: none;
+        border: 1px solid solid;
+    }
+
+</style>
+
+{% endblock content %}

@@ -24,6 +24,9 @@ pick up but I wanted to do this types of app with python so I did.But if I had t
 3. Pandas
 4. Matplotlib (for the graphs)
 5. Numpy
+6. Javascript
+7. Vuejs
+8. Html,css
 
 
 I have a great plan to build something like that.But I found matplotlib not the best for this kind of web project.You can use matplotlib with jupyter thats one of the great tool

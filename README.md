@@ -27,4 +27,6 @@ pick up but I wanted to do this types of app with python so I did.But if I had t
 
 
 I have a great plan to build something like that.But I found matplotlib not the best for this kind of web project.You can use matplotlib with jupyter thats one of the great tool
-to analytics manually.But with web it is slower.I will try a cms for analytic latter with something that goes well to websites. Thank you.
+to analytics manually.But with web it is slower.I will try a cms for analytic latter with something that goes well to websites.
+
+Thank you.
